@@ -13,12 +13,14 @@ import android.widget.Toast;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class LoginActivity extends AppCompatActivity {
     public static final String TAG = "LoginActivity";
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
+    private Button btnCreateAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,16 @@ public class LoginActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        btnCreateAccount = findViewById(R.id.btnCreateAccount);
+
+        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "OnClick create account button");
+                goCreateActivity();
+            }
+
+        });
         btnLogin.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -35,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i(TAG, "OnClick login button");
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
-                //Toast.makeText(LoginActivity.this, "username: "+username+" password:"+password, Toast.LENGTH_SHORT).show();
                 loginUser(username, password);
             }
         });
@@ -59,6 +70,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void goMainActivity() {
         Intent i = new Intent(this,MainActivity.class);
+        startActivity(i);
+    }
+    private void goCreateActivity(){
+        Intent i = new Intent(this, CreateActivity.class);
         startActivity(i);
     }
 }
