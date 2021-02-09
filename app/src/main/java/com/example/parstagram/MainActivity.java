@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView ivPostImage;
     private Button btnSubmit;
     private Button btnLogout;
+    private TextView etDes;
+    private ImageView ivImage;
     private File photoFile;
     public String photoFileName = "photo.jpg";
 
@@ -85,7 +88,14 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
+                //etDes = findViewById(R.id.etDescription);
+                //ivImage = findViewById(R.id.ivPostImage);
                 savePost(description, currentUser, photoFile);
+
+                //setContentView(R.layout.activity_feed);
+
+
+                Toast.makeText(MainActivity.this, "Post posted!", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -172,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void done(List<Post> posts, ParseException e) {
                 if(e != null){
-                    Log.e(TAG, "Issue with getter posts", e);
+                    Log.e(TAG, "Issue with getting posts", e);
                     return;
                 }
                 for(Post post: posts){
