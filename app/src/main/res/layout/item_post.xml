@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/sand"
         tools:text="tim tones" />
 
     <ImageView
@@ -27,6 +28,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:autoLink="all"
+        android:textAlignment="center"
+        android:textColor="@color/sand"
         tools:text="I won't sell your data" />
 
     <TextView
@@ -34,6 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/sand"
         tools:text="Created At 9 Feb 2021 at 05:42:25 UTC" />
 </LinearLayout>

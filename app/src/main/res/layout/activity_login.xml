@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
+    android:background="@drawable/gradient_background"
+
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".LoginActivity">
 
     <EditText
@@ -13,7 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="username" />
+        android:hint="username"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/white"
+        android:textColorHint="#003f5a" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -21,18 +26,22 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="#003f5a" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#003f5a"
         android:text="Login" />
 
     <Button
         android:id="@+id/btnCreateAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#007a7a"
         android:text="Create an Account" />
 
 </LinearLayout>

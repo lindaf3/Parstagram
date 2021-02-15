@@ -2,15 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    android:orientation="vertical">
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/etNewUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="new username" />
+        android:hint="new username"
+        android:textColor="#FDF6F6"
+        android:textColorHint="@color/blue1" />
 
     <EditText
         android:id="@+id/etNewPassword"
@@ -18,14 +21,18 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="new password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/blue1" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="sign up email" />
+        android:hint="sign up email"
+        android:textColor="@color/white"
+        android:textColorHint="@color/blue1" />
 
     <Button
         android:id="@+id/btnCreate"

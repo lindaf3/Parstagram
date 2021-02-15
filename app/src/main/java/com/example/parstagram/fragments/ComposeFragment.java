@@ -116,8 +116,6 @@ public class ComposeFragment extends Fragment {
                 savePost(description, currentUser, photoFile);
 
                 //setContentView(R.layout.activity_feed);
-
-
                 Toast.makeText(getContext(), "Post posted!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -126,6 +124,8 @@ public class ComposeFragment extends Fragment {
             Intent i = new Intent(getContext(), LoginActivity.class);
             startActivity(i);
         }
+
+
 
         private void launchCamera() {
             // create Intent to take a picture and return control to the calling application
