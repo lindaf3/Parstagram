@@ -34,7 +34,7 @@ public class PostsFragment extends Fragment {
 
     private RecyclerView rvPosts;
     public static final String TAG = "PostsFragment";
-    private SwipeRefreshLayout swipeContainer;
+    protected SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
 
     protected PostsAdapter adapter;
@@ -76,14 +76,17 @@ public class PostsFragment extends Fragment {
             @Override
             public void onRefresh() {
                 Log.i(TAG, "fetching new data");
-                scrollListener.resetState();
-                queryPosts();
 
+                queryPosts();
+                scrollListener.resetState();
             }
         });
         scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                if(adapter.getItemCount() < 20){
+                    return;
+                }
                 Toast.makeText(getContext(), "Fetching the next 20 posts", Toast.LENGTH_SHORT).show();
                 // Triggered only when new data needs to be appended to the list
                 // Add whatever code is needed to append new items to the bottom of the list
@@ -97,7 +100,7 @@ public class PostsFragment extends Fragment {
     }
 
 
-    private void loadMoreData() {
+    protected void loadMoreData() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
         query.setSkip(adapter.getItemCount());
@@ -114,8 +117,6 @@ public class PostsFragment extends Fragment {
                     Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
                 }
                 adapter.addAll(posts);
-                // Now we call setRefreshing(false) to signal refresh has finished
-                swipeContainer.setRefreshing(false);
                 adapter.notifyDataSetChanged();
             }
         });
