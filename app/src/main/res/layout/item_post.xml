@@ -28,4 +28,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         tools:text="I won't sell your data" />
+
+    <TextView
+        android:id="@+id/timestamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:text="Created At 9 Feb 2021 at 05:42:25 UTC" />
 </LinearLayout>

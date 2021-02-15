@@ -15,7 +15,9 @@ public class Post extends ParseObject {
     public String getDescription(){
         return getString(KEY_DESCRIPTION);
     }
-
+    public String getTimestamp(){
+        return String.valueOf(getCreatedAt());
+    }
     public void  setDescription(String  description){
         put(KEY_DESCRIPTION, description);
     }
@@ -31,7 +33,4 @@ public class Post extends ParseObject {
     public void setUser(ParseUser user){
         put(KEY_USER, user);
     }
-
-
-
 }
